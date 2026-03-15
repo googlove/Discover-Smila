@@ -1,0 +1,212 @@
+/* Базові налаштування */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Фон (Glass Design потребує гарного фону) */
+.background-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* Рекомендую замінити це посилання на красиве фото Сміли */
+    background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
+    z-index: -1;
+}
+
+/* Скляні панелі */
+.glass-panel {
+    background: rgba(20, 20, 20, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Шапка сайту */
+header {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+/* Основний контент */
+main {
+    width: 100%;
+    max-width: 900px;
+    flex: 1;
+}
+
+/* Пошук та фільтри */
+.search-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 600px;
+    padding: 14px 20px;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    backdrop-filter: blur(5px);
+    transition: background 0.3s, border-color 0.3s;
+    margin-bottom: 15px;
+}
+
+.search-input::placeholder { color: rgba(255, 255, 255, 0.7); }
+.search-input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #4da8da;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.categories span {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    font-size: 0.9rem;
+}
+
+.categories span:hover { background: rgba(255, 255, 255, 0.4); }
+.categories span:active { transform: scale(0.95); }
+.categories span.active {
+    background: #4da8da;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #4da8da;
+}
+
+/* Сітка карток */
+.landmarks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Картка */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.card:hover { transform: translateY(-5px); }
+
+.card h3 {
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+}
+
+.card .location {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.2s, background 0.3s;
+    font-size: 0.9rem;
+}
+
+.btn:active { transform: scale(0.95); }
+
+.btn-ar {
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+    flex: 1;
+}
+
+.btn-audio {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    flex: 1;
+}
+
+/* Футер */
+.footer {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: auto;
+}
+
+.footer a {
+    color: #4da8da;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.mono-btn {
+    background: #000;
+    color: #fff !important;
+    border: 1px solid #e73656;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* Адаптація під мобільні екрани */
+@media (max-width: 600px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    .card .buttons {
+        flex-direction: column;
+    }
+}
